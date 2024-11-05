@@ -711,6 +711,9 @@ class GxEPD2_BW : public GxEPD2_GFX_BASE_CLASS
     {
       epd2.hibernate();
     }
+    uint8_t* getBuffer() const {
+      return _buffer;
+    }
   private:
     template <typename T> static inline void
     _swap_(T & a, T & b)
@@ -746,9 +749,6 @@ class GxEPD2_BW : public GxEPD2_GFX_BASE_CLASS
           y = HEIGHT - y - h;
           break;
       }
-    }
-    uint8_t* getBuffer() const {
-      return _buffer;
     }
   private:
     uint8_t _buffer[(GxEPD2_Type::WIDTH / 8) * page_height];
