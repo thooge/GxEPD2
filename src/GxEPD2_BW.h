@@ -747,6 +747,9 @@ class GxEPD2_BW : public GxEPD2_GFX_BASE_CLASS
           break;
       }
     }
+    uint8_t* getBuffer() const {
+      return _buffer;
+    }
   private:
     uint8_t _buffer[(GxEPD2_Type::WIDTH / 8) * page_height];
     bool _using_partial_mode, _second_phase, _mirror, _reverse;
