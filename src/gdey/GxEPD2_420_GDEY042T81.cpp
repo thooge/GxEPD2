@@ -371,8 +371,9 @@ void GxEPD2_420_GDEY042T81::_Update_Full()
   if (_use_fast_update)
   {
     _writeCommand(0x1A); // Write to temperature register
-    //_writeData(0x64); // 2023 version
-    _writeData(0x6E); // 2024 version, ok for 2023 version
+    //_writeData(0x64);  // 2023 version; 100°C
+    // _writeData(0x6E); // 2024 version, ok for 2023 version
+    _writeData(0x19);    // fix for OBP60: 25°C
     _writeCommand(0x22);
     _writeData(0xd7);
   }
@@ -392,7 +393,8 @@ void GxEPD2_420_GDEY042T81::_Update_Part()
   _writeData(0x00);    // RED normal
   _writeData(0x00);    // single chip application
   _writeCommand(0x22);
-  _writeData(0xfc);
+//  _writeData(0xfc);
+  _writeData(0xff);    // fix for OBP60
   _writeCommand(0x20);
   _waitWhileBusy("_Update_Part", partial_refresh_time);
   _power_is_on = true;
