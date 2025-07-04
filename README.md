@@ -46,7 +46,8 @@
 - Waveshare e-paper displays with SPI: http://forum.arduino.cc/index.php?topic=487007.0
 - Good Display ePaper for Arduino : https://forum.arduino.cc/index.php?topic=436411.0
 - Note that these topics are closed. Use only for reference.
-- create a new topic for each question or issue in https://forum.arduino.cc/c/using-arduino/displays/23
+- The Arduino Forum is no longer watched and answered by the Author.
+- New questions or issues should be posted on https://github.com/ZinggJM/GxEPD2/discussions
 
 ### Note on documentation
 - GxEPD2 uses Adafruit_GFX for Graphics and Text support, which is well documented there
@@ -56,11 +57,11 @@
 - https://github.com/olikraus/u8glib/wiki/tpictureloop
 
 ### Note on issues and pull requests
-- issues should be reported in the Arduino Forum Displays.
+- issues should be reported in https://github.com/ZinggJM/GxEPD2/discussions.
 - issues on GitHub are disabled; there were too many false issues.
 - pull requests are not welcome, will not be merged.
 - pull requests can't be disabled, but will be closed.
-- please place information about interesting fork additions in the Arduino Forum Displays.
+- please place information about interesting fork additions in https://github.com/ZinggJM/GxEPD2/discussions.
 
 ### Supported SPI e-paper panels from Good Display:
 - GDEW0102T4     1.02" b/w 80x128, UC8175
@@ -109,6 +110,7 @@
 - GDEY029F51H    2.9" 4-color 168x384, JD79667
 - Waveshare3inch4color 3.0" 4-color 168x400
 - GDEQ031T10     3.1" b/w 240x320, UC8253
+- GDEY037T03     3.7" b/w 240x416, UC8253
 - ED037TC1       3.7" b/w 280x480, SSD1677, Waveshare 3.7"
 - GDEW0371W7     3.7" b/w 240x416, UC8171 (IL0324)
 - GDEW042T2      4.2" b/w 400x300, UC8176 (IL0398)
@@ -158,11 +160,24 @@
 - ES103TC1     10.3" grey levels, 1872x1404, on Waveshare e-Paper IT8951 Driver HAT
 
 ### I can and will only support e-paper panels I have!
-- I can accept panel donations to add support to GxEPD2.
-- But only few panels at any time, and only panels from known sources. 
-- Adding support will take as much time as needed.
+- I accept panel donations to add support to GxEPD2 only on exception.
+- I support only panels from known sources that are well documented.
+- Let me know about interesting panels that fall into this category.
+- I occasionally buy new panels, but adding support will take as much time as needed.
 
-### Version 1.6.0
+### Version 1.6.4
+- added support for GDEY037T03 3.7" b/w 240x416, UC8253
+#### Version 1.6.3
+- updated GxEPD2_4C.h with WIDTH_VISIBLE (for GDEY0213F51)
+- updated GxEPD2_154_Z90c.cpp powerOff() handling
+- updated powerOff() handling for other 3-color displays
+#### Version 1.6.2
+- fixed support for GDEY029T71H 2.9" b/w 168x384, SSD1685
+- GxEPD2_WiFi_Example: added direct (non-buffered) BMP download to 7-color displays
+- some minor fixes
+#### Version 1.6.1
+- fixed and updated GxEPD2_WiFi_Example
+#### Version 1.6.0
 - updated support for GDEY029T94: fixed a partial refresh issue
 - updated support for GDEY042T81: fixed fast full refresh for 2024 panel version
 - updated support for GDEP073E01: fixed color mapping for its native color values

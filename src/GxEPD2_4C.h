@@ -79,9 +79,9 @@ class GxEPD2_4C : public GxEPD2_GFX_BASE_CLASS
   public:
     GxEPD2_Type epd2;
 #if ENABLE_GxEPD2_GFX
-    GxEPD2_4C(GxEPD2_Type epd2_instance) : GxEPD2_GFX_BASE_CLASS(epd2, GxEPD2_Type::WIDTH, GxEPD2_Type::HEIGHT), epd2(epd2_instance)
+    GxEPD2_4C(GxEPD2_Type epd2_instance) : GxEPD2_GFX_BASE_CLASS(epd2, GxEPD2_Type::WIDTH_VISIBLE, GxEPD2_Type::HEIGHT), epd2(epd2_instance)
 #else
-    GxEPD2_4C(GxEPD2_Type epd2_instance) : GxEPD2_GFX_BASE_CLASS(GxEPD2_Type::WIDTH, GxEPD2_Type::HEIGHT), epd2(epd2_instance)
+    GxEPD2_4C(GxEPD2_Type epd2_instance) : GxEPD2_GFX_BASE_CLASS(GxEPD2_Type::WIDTH_VISIBLE, GxEPD2_Type::HEIGHT), epd2(epd2_instance)
 #endif
     {
       _page_height = page_height;
@@ -542,7 +542,7 @@ class GxEPD2_4C : public GxEPD2_GFX_BASE_CLASS
             else if ((green >= 0x8000) && (blue >= 0x8000)) cv4 = 0x01; //  green, blue > white
             else if ((red >= 0x8000) && (green >= 0xC000)) cv4 = 0x02; // yellow
             else if ((red >= 0x8000) && (green >= 0x4000)) cv4 = 0x03; // orange > red
-            else if (red >= 0x8000) cv4 = 0x04; // red
+            else if (red >= 0x8000) cv4 = 0x03; // red
             else if (green >= 0x8000) cv4 = 0x00; // green > black
             else cv4 = 0x03; // blue
           }
