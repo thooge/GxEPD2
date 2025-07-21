@@ -370,17 +370,13 @@ void GxEPD2_420_GDEY042T81::_Update_Full()
   _writeData(0x00);    // single chip application
   if (_use_fast_update)
   {
-    _writeCommand(0x1A); // Write to temperature register
-    //_writeData(0x64);  // 2023 version; 100°C
-    // _writeData(0x6E); // 2024 version, ok for 2023 version
-    _writeData(0x19);    // fix for OBP60: 25°C
-    _writeCommand(0x22);
-    _writeData(0xd7);
+    _writeCommand(0x22); 
+    _writeData(0xf7);     // Use internal temperature compensation 
   }
   else
   {
     _writeCommand(0x22);
-    _writeData(0xf7);
+    _writeData(0xff);     // Disable OSC, Analog and Clock for better results under strong sunshine
   }
   _writeCommand(0x20);
   _waitWhileBusy("_Update_Full", full_refresh_time);
